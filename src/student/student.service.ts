@@ -6,7 +6,7 @@ import { Student } from './entities/student.entity';
 @Injectable()
 export class StudentService {
   create(student: Partial<Student>) {
-    throw new Error('Method not implemented.');
+    throw new Error('Method not working.');
   }
   constructor(
     @InjectRepository(Student)

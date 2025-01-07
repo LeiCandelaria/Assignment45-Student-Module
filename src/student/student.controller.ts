@@ -7,10 +7,14 @@ export class StudentController {
   constructor(private readonly studentService: StudentService) {}
 
 
-   @Get()
-  async findAll(): Promise<Student[]> {
-    return await this.studentService.findAll();
- }
+ @Post()
+  create(@Body() student: Partial<Student>) {
+    return this.studentService.create(student);
+  }
+  @Get()
+findAll() {
+  return this.studentService.findAll();
+}
 
   @Delete(':id')
   async delete(@Param('id') id: number): Promise<void> {

@@ -12,17 +12,5 @@ import { Controller,Get, Post, Put,Delete,Body,Param, } from '@nestjs/common';
       return await this.studentService.findAll();
    }
 
-    @Delete(':id')
-    async delete(@Param('id') id: number): Promise<void> {
-      return await this.studentService.delete(id);
-}
-    @Put(':id')
-    async update(
-      @Param('id') id: number,
-      @Body() student: Partial<Student>,
-    ): Promise<Student> {
-      return await this.studentService.update(id, student);
-} 
-
     }
   

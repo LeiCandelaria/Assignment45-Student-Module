@@ -5,9 +5,13 @@ import { Student } from './entities/student.entity';
 
 @Injectable()
 export class StudentService {
-  create(student: Partial<Student>) {
-    throw new Error('Method not implemented.');
-  }
+    async create(student: Partial<Student>): Promise<Student> {
+        try {
+          return await this.studentRepository.save(student);
+        } catch (error) {
+          throw new Error(`Failed to create student: ${error.message}`);
+        }
+      }
   constructor(
     @InjectRepository(Student)
     private readonly studentRepository: Repository<Student>,

@@ -30,7 +30,6 @@ CREATE TABLE `student` (
 COMMIT;
 --data for table student from student_db-----
 INSERT INTO `student` (`id`, `firstName`, `lastName`, `email`, `enrollmentDate`, `createdAt`, `updatedAt`) VALUES
-(4, 'Wednesday', 'Addams', 'fridayaddams@nevermore.com', '2024-11-13', '2024-11-13 12:00:13.446562', '2024-11-15 18:00:00.000000'),
-(18, '', '', '', '0000-00-00', '2024-12-28 18:20:55.788779', '2024-12-28 18:21:12.000000');
+(131313, 'Wednesday', 'Addams', 'fridayaddams@nevermore.com', '2024-11-13', '2024-11-13 12:00:13.446562', '2024-11-15 18:00:00.000000');
 
 ---table subjects------

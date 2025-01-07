@@ -1,8 +1,7 @@
-
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { StudentModule}from './student/student.module';
 
-///for database connection//
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -15,6 +14,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    StudentModule,
   ],
 })
 export class AppModule {}
+		

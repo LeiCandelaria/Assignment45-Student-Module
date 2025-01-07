@@ -11,21 +11,12 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `student_db`
---
+---
+----------------------------------------------------------------
 
--- --------------------------------------------------------
-
---
--- Table structure for table `student`
---
+---table student attributes--
 
 CREATE TABLE `student` (
   `id` int(13) NOT NULL,
@@ -37,7 +28,9 @@ CREATE TABLE `student` (
   `updatedAt` datetime(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
+--data for table student from student_db-----
+INSERT INTO `student` (`id`, `firstName`, `lastName`, `email`, `enrollmentDate`, `createdAt`, `updatedAt`) VALUES
+(4, 'Wednesday', 'Addams', 'fridayaddams@nevermore.com', '2024-11-13', '2024-11-13 12:00:13.446562', '2024-11-15 18:00:00.000000'),
+(18, '', '', '', '0000-00-00', '2024-12-28 18:20:55.788779', '2024-12-28 18:21:12.000000');
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+---table subjects------

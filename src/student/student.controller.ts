@@ -1,25 +1,31 @@
-import { Controller } from '@nestjs/common';
 
-@Controller('student')
-export class StudentController {}
-import { Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
-import { InjectRepository } from '@nestjs/typeorm';
+import {Controller, Get, Post,Put,Delete,Body,Param,} from '@nestjs/common';
+import { StudentService } from './student.service';
 import { Student } from './entities/student.entity';
 
-@Injectable()
-export class StudentService {
-  constructor(
-    @InjectRepository(Student)
-    private readonly studentRepository: Repository<Student>,
-  ) {}
+@Controller('students')
+export class StudentController {
+  constructor(private readonly studentService: StudentService) {}
 
-  async create(student: Partial<Student>): Promise<Student> {
-    return this.studentRepository.save(student);
-  }
-  async update(id: number, updateData: Partial<Student>): Promise<Student> {
-    await this.studentRepository.update(id, updateData);
-    return this.studentRepository.findOneBy({ id });
-  }
 
+ @Post()
+  create(@Body() student: Partial<Student>) {
+    return this.studentService.create(student);
+  }
+  @Get()
+findAll() {
+  return this.studentService.findAll();
+}
+
+  @Delete(':id')
+  async delete(@Param('id') id: number): Promise<void> {
+    return await this.studentService.delete(id);
+}
+  @Put(':id')
+  async update(
+    @Param('id') id: number,
+    @Body() student: Partial<Student>,
+  ): Promise<Student> {
+    return await this.studentService.update(id, student);
+}
 }

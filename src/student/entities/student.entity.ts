@@ -3,6 +3,7 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 @Entity()
 export class Student {
   @PrimaryGeneratedColumn()
+  
   id: number;
 
   @Column()

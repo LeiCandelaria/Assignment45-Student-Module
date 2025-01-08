@@ -11,11 +11,7 @@ export class StudentController {
   create(@Body() student: Partial<Student>) {
     return this.studentService.create(student);
   }
-  //fetch//
-  @Get()
-findAll() {
-  return this.studentService.findAll();
-}
+ 
 //fetch one by id//  @Get(':id')
   async findOne(@Param('id') id: number): Promise<Student> {
     try {

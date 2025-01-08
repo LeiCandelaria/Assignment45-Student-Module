@@ -12,13 +12,21 @@ export class StudentController {
     return this.studentService.create(student);
   }
  
-//fetch one by id//  @Get(':id')
-  async findOne(@Param('id') id: number): Promise<Student> {
-    try {
-      return await this.studentService.findOne(id);
-    } catch (error) {
-      throw new NotFoundException(error.message);
+  @Get()  
+  async findAll(): Promise<Student[]> {
+    const students = await this.studentService.findAll();
+    if (!students || students.length === 0) {
+      throw new NotFoundException('No students found');
     }
+    return students;
+  }
+  @Get(':id')  
+  async findOne(@Param('id') id: number): Promise<Student> {
+    const student = await this.studentService.findOne(id);
+    if (!student) {
+      throw new NotFoundException(`Student with ID ${id} not found`);
+    }
+    return student;
   }
 
 //remove/delete//

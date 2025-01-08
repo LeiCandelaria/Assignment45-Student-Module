@@ -28,8 +28,3 @@ CREATE TABLE `student` (
   `updatedAt` datetime(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
---data for table student from student_db-----
-INSERT INTO `student` (`id`, `firstName`, `lastName`, `email`, `enrollmentDate`, `createdAt`, `updatedAt`) VALUES
-(131313, 'Wednesday', 'Addams', 'fridayaddams@nevermore.com', '2024-11-13', '2024-11-13 12:00:13.446562', '2024-11-15 18:00:00.000000');
-
----table subjects------

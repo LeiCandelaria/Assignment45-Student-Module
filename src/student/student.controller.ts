@@ -16,6 +16,13 @@ export class StudentController {
 findAll() {
   return this.studentService.findAll();
 }
+//fetch one by id//
+@Get(':id') // ACCEPT FIND REQUEST  ATTRIBUTE : id //
+  findOne(@Param('id') id: string) {
+    return this.studentService.find(id);  // FETCHES IT USING ID//
+  }
+
+
 //remove/delete//
   @Delete(':id')
   async delete(@Param('id') id: number): Promise<void> {

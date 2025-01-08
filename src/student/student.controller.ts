@@ -9,7 +9,7 @@ export class StudentController {
 
  @Post()
   create(@Body() student: Partial<Student>) {
-    return this.studentService.create(student);
+    return this.studentService.create({ student: { student } });
   }
   @Get()
 findAll() {

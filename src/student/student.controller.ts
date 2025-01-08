@@ -6,6 +6,18 @@
   export class StudentController {
     constructor(private readonly studentService: StudentService) {}
    
+    @Post()
+    create(@Body() student: Partial<Student>) {
+      return this.studentService.create(student);
+    }
+    @Post(':id')
+    async post(
+      @Param('id') id: number,
+      @Body() student: Partial<Student>,
+    ): Promise<Student> {
+      return await this.studentService.post(id, student);
+  } 
+  
     @Get()
     async findAll(): Promise<Student[]> {
       return await this.studentService.findAll();

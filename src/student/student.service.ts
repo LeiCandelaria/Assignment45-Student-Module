@@ -5,10 +5,13 @@ import { Student } from './entities/student.entity';
 
 @Injectable()
 export class StudentService {
+  post(id: number, student: Partial<Student>): Student | PromiseLike<Student> {
+    throw new Error('Method not implemented.');
+  }
   constructor(
     @InjectRepository(Student)
     private readonly studentRepository: Repository<Student>,
-  ) {}
+  ) {}  
 
   async create(student: Partial<Student>): Promise<Student> {
     try {

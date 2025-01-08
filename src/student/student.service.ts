@@ -5,6 +5,9 @@ import { Student } from './entities/student.entity';
 
 @Injectable()
 export class StudentService {
+  find(id: string) {
+    throw new Error('Method not implemented.');
+  }
   create(student: Partial<Student>) {
     throw new Error('Method not implemented.');
   }
@@ -16,10 +19,12 @@ export class StudentService {
 async findAll(): Promise<Student[]> {
     return await this.studentRepository.find();
 }
-
-async findOne(id: number, student: Partial<Student>): Promise<Student> {
-  await this.studentRepository.update(id, student);
-  return await this.studentRepository.findOne({ where: { id } });
+async findOne(id: number): Promise<Student> {
+  const student = await this.studentRepository.findOne({ where: { id } });
+  if (!student) {
+    throw new Error(`Student with ID ${id} not found`); 
+  }
+  return student;
 }
 
   async delete(id: number): Promise<void> {

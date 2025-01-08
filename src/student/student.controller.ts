@@ -1,4 +1,4 @@
-import {Controller, Get, Post,Put,Delete,Body,Param,} from '@nestjs/common';
+import {Controller, Get, Post,Put,Delete,Body,Param,NotFoundException} from '@nestjs/common';
 import { StudentService } from './student.service';
 import { Student } from './entities/student.entity';
 
@@ -16,12 +16,14 @@ export class StudentController {
 findAll() {
   return this.studentService.findAll();
 }
-//fetch one by id//
-@Get(':id') // ACCEPT FIND REQUEST  ATTRIBUTE : id //
-  findOne(@Param('id') id: string) {
-    return this.studentService.find(id);  // FETCHES IT USING ID//
+//fetch one by id//  @Get(':id')
+  async findOne(@Param('id') id: number): Promise<Student> {
+    try {
+      return await this.studentService.findOne(id);
+    } catch (error) {
+      throw new NotFoundException(error.message);
+    }
   }
-
 
 //remove/delete//
   @Delete(':id')

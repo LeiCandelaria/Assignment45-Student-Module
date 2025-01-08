@@ -1,14 +1,13 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Student } from './entities/student.entity';
 
 @Injectable()
 export class StudentService {
-    async create(student: Partial<Student>): Promise<Student> {
-        try {
-          return await this.studentRepository.save(student);
-        } catch (error) {
-          throw new Error(`Failed to create student: ${error.message}`);
-        }
-      }
+  create(student: Partial<Student>) {
+    throw new Error('Method not implemented.');
+  }
   constructor(
     @InjectRepository(Student)
     private readonly studentRepository: Repository<Student>,
